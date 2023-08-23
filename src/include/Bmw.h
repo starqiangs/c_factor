@@ -13,3 +13,12 @@ public:
         std::cout << "Bmw:" << _name << std::endl;
     }
 };
+
+class BmwLight : public Light
+{
+public:
+    void PrintLight()
+    {
+        std::cout << "create BMW light" << std::endl;
+    }
+};

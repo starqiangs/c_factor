@@ -33,12 +33,12 @@ public:
     }
 };
 
-
 // 符合软件设计开闭原则
 class FactorMethod
 {
 public:
     virtual Car *CreateCar(std::string name) = 0;
+    virtual Light *CreateLight() = 0;
 };
 
 class BmwFactor : public FactorMethod
@@ -48,6 +48,10 @@ public:
     {
         return new Bmw(name);
     }
+    Light *CreateLight()
+    {
+        return new BmwLight();
+    }
 };
 
 class AudiFactor : public FactorMethod
@@ -56,5 +60,9 @@ public:
     Car *CreateCar(std::string name)
     {
         return new Audi(name);
+    }
+    Light *CreateLight()
+    {
+        return new AudiLight();
     }
 };

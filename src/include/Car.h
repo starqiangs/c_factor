@@ -12,3 +12,9 @@ public:
 protected:
     std::string _name;
 };
+
+class Light
+{
+public:
+    virtual void PrintLight() = 0;
+};
