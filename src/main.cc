@@ -14,5 +14,14 @@ int main()
     p1->GetCarName();
     p2->GetCarName();
 
+    std::unique_ptr<BmwFactor> bmw_factor(new BmwFactor());
+    std::unique_ptr<AudiFactor> adui_factor(new AudiFactor());
+    std::unique_ptr<Car> car1(bmw_factor->CreateCar("X2"));
+    std::unique_ptr<Car> car2(adui_factor->CreateCar("A8"));
+    car1->GetCarName();
+    car2->GetCarName();
+
+
+
     return 0;
 }

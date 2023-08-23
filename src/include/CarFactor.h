@@ -11,6 +11,7 @@ enum Cartype
     BMW,
 };
 
+// 不符合开闭原则 里面的内容越增加越多 不封闭
 class SimepCarFactor
 {
 public:
@@ -29,5 +30,31 @@ public:
             break;
         }
         return nullptr;
+    }
+};
+
+
+// 符合软件设计开闭原则
+class FactorMethod
+{
+public:
+    virtual Car *CreateCar(std::string name) = 0;
+};
+
+class BmwFactor : public FactorMethod
+{
+public:
+    Car *CreateCar(std::string name)
+    {
+        return new Bmw(name);
+    }
+};
+
+class AudiFactor : public FactorMethod
+{
+public:
+    Car *CreateCar(std::string name)
+    {
+        return new Audi(name);
     }
 };
